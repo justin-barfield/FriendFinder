@@ -156,8 +156,68 @@
     </div>
 
     <footer class="footer">
+
+        <div class="container">
+
+            <p>Page Index</p>
+            <p>
+                <a href="#">Reset Form</a>
+                <a href="/api/home"></a>
+                <a href="/api/survey"></a>
+            </p>
+
+        </div>
         
     </footer>
+
+<script type="text/javascript">
+
+    $(".submit").on("click", function(event) {
+
+        event.preventDefault();
+
+        var scoresArray = [];
+
+        for( i = 0; i < 10; i++ ){
+
+            scoresArray.push($("#question" + i).val().trim());
+
+            console.log(scoresArray);
+
+        }
+
+        var newSurvey = {
+
+            name: $("#formName").val().trim(),
+            scores: scoresArray
+
+        }
+
+        console.log(newSurvey);
+
+        
+
+        // Show modal when finished calculating
+        $.post("/api/friends")
+    })
+
+
+    function friendDataQuery() {
+
+        $.ajax({ url: "/api/friends", method: "GET"})
+            .then(function(friendsData) {
+
+                console.log(friendsData);
+                console.log("==========================");
+
+
+            })
+    }
+
+
+
+
+</script>
     
 </body>
 </html>
