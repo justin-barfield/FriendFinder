@@ -195,27 +195,28 @@
 
         console.log(newSurvey);
 
-        
+        // Post to friends.js, calculate score, clear form, show modal
+        $.post("/api/friends", newSurvey, function() {
 
-        // Show modal when finished calculating
-        $.post("/api/friends")
-    })
+            
 
+        })
+            .then(function() {
 
-    function friendDataQuery() {
-
-        $.ajax({ url: "/api/friends", method: "GET"})
-            .then(function(friendsData) {
-
-                console.log(friendsData);
-                console.log("==========================");
-
+                $("#formName").val("");
+                $("#question1").val("");
+                $("#question2").val("");
+                $("#question3").val("");
+                $("#question4").val("");
+                $("#question5").val("");
+                $("#question6").val("");
+                $("#question7").val("");
+                $("#question8").val("");
+                $("#question9").val("");
+                $("#question10").val("");
 
             })
-    }
-
-
-
+    })
 
 </script>
     
