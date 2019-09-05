@@ -35,7 +35,7 @@ module.exports = function(app) {
             }
 
         }
-        
+
         console.log("Match found: " + friendsData[bestMatch]);
         friendsData.push(newSubmit);
         res.json(friendsData[bestMatch]);
@@ -43,6 +43,3 @@ module.exports = function(app) {
     })
 
 };
-
-// app.post for api. write to modal
-
